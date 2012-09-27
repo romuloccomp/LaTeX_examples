@@ -1,0 +1,55 @@
+% Artigo para as disciplinas: Heuristica e Dinamica Populacional de células
+% CEFET - MMC
+% Romulo da Silva Pereira
+% romuloccomp@gmail.com
+
+\documentclass[a4paper,12pt]{article}
+\usepackage[brazil,english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx,graphpap}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+
+\usetikzlibrary{arrows,automata}
+
+\renewcommand{\labelitemii}{$\bullet$}
+
+\selectlanguage{brazil} 
+
+\date{Feverreiro/2012}
+
+\begin{document}
+
+    %algoritmo
+   \begin{algorithm}
+     \caption{Multi-Start}
+     \label{alg1}
+     \begin{algorithmic}[1] 
+       \STATE \COMMENT{Realiza interação até a quantidade MAX\_i}
+       \WHILE{$i < MAX\_i$}
+         \STATE \COMMENT{Cria a distribuição com o número máximo disponível}
+         \STATE $taxa \Leftarrow rand\_int (n\_vacinas)$
+         \STATE \COMMENT{Executa o MBI com a distribuição gerada}
+         \STATE $s \Leftarrow exec\_mbi(taxa)$
+         \STATE \COMMENT{Realiza busca nas soluções vizinhas até encontrar um melhor ou MAX\_i}        
+         \WHILE{$s < s' and j < MAX\_i$}
+           \STATE $taxa' \Leftarrow cria\_solucao\_local (taxa)$
+           \STATE $s' \Leftarrow exec\_mbi(taxa')$
+         \ENDWHILE
+         \STATE \COMMENT{Compara o resultado com a melhor solução encontrada}        
+         \IF{$s' < s\_melhor$}
+           \STATE \COMMENT{Caso for melhor salva a solução atual}
+           \STATE $s\_melhor \Leftarrow s'$
+         \ENDIF   
+       \ENDWHILE
+       \STATE \COMMENT{No final é apresentado a melhor solução encontrada}
+     \end{algorithmic}
+   \end{algorithm}
+  
+\end{document}
+
+

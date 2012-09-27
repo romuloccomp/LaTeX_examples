@@ -1,0 +1,30 @@
+% Author: Romulo romuloccomp@gmail.com
+% Figuras sample
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx,graphpap}
+\usepackage{subfigure}
+
+\begin{document}
+
+  \begin{figure}[!htb]
+    \center
+    \includegraphics[width=12cm]{sample.png}
+    \caption{Imagens normal centralizada}
+  \end{figure}
+  
+  \begin{figure}[!htb]
+    \center
+    \subfigure[ref1][Legenda1]{\includegraphics[width=6cm]{sample.png}}
+    \qquad
+    \subfigure[ref2][Legenda2]{\includegraphics[width=6cm]{sample.png}}
+    \caption{Imagens lado a lado}
+  \end{figure}
+  
+\end{document}
+
